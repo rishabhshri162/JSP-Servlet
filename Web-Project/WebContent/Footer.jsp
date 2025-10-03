@@ -1,50 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+
+<style type="text/css">
+#footer {
+	position: fixed;
+	left: 0;
+	width: 100%;
+	bottom: 0;
+	background-color: white;
+	color: black;
+	text-align: center;
+}
+</style>
+
 </head>
 <body>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	
 
-	<div align="center">
-		<footer> &copy; 2025 Rays Technologies | All Rights Reserved
-		</footer>
+	<div id="footer">
+		<CENTER>
+			<hr>
+			<H3>&copy; 2025 RAYS Technologies | All rights reserved</H3>
+		</CENTER>
 	</div>
-
-
-</body>
 </html>
