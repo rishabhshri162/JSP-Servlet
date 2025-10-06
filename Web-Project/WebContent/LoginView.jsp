@@ -59,14 +59,8 @@ String successMsg = (String) request.getAttribute("successMsg");
 			</table>
 
 
-
-
-
-
 		</form>
-
-
-
+	
 
 	</div>
 	<%@ include file="Footer.jsp"%>

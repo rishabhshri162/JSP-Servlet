@@ -13,8 +13,8 @@ import com.rays.exception.RecordNotFoundException;
 import com.rays.util.JDBCDataSource;
 
 public class UserModel {
-    
-	//Generate next primary key
+
+	// Generate next primary key
 
 	public int nextpk() throws Exception {
 		int pk = 0;
@@ -81,7 +81,7 @@ public class UserModel {
 	// update query
 
 	public void update(UserBean bean) throws Exception {
-		
+
 		Connection conn = JDBCDataSource.getConnection();
 
 		PreparedStatement pstmt = conn.prepareStatement(
@@ -183,6 +183,23 @@ public class UserModel {
 
 	}
 
+	// forgotpassword
+	public void forgotPassword(String login) throws Exception {
+		Connection conn = JDBCDataSource.getConnection();
+		PreparedStatement pstmt = conn.prepareStatement("SELECT password FROM st_user WHERE login=?");
+		pstmt.setString(1, login.trim());
+		ResultSet rs = pstmt.executeQuery();
+
+		if (rs.next()) {
+			String password = rs.getString("password");
+
+			System.out.println("Password for user " + login + " is: " + password);
+
+		} else {
+			throw new RuntimeException("Invalid login or email.");
+		}
+	}
+
 	// Find by id
 
 	public UserBean findById(int id) throws Exception {
@@ -266,6 +283,5 @@ public class UserModel {
 		return list;
 
 	}
-
 
 }

@@ -7,6 +7,7 @@
 <title>My First JSP file</title>
 </head>
 <body>
+<%@ include file="Header.jsp"%>
 
 <div align="center">
 <h1> Hello java !</h1>
@@ -17,5 +18,6 @@
 <h6> Hello java !</h6>
 
 </div>
+<%@ include file="Footer.jsp"%>
 </body>
 </html>

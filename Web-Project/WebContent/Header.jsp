@@ -16,7 +16,7 @@
 	<%
 		if (user != null) {
 	%>
-	<h3><%="Hi, " + user.getFirstname()%></h3>
+	<h3><%="Hi, " + user.getFirstname()+ " " + user.getLastname()%></h3>
 	<%
 		} else {
 	%>
@@ -26,17 +26,21 @@
 	%>
 
 	<%
-		if (user != null) {
+	if (user != null) {
 	%>
+	<a href="UserCtl">Add User</a> |
+	<a href="UserListCtl">User List</a> |
+	<a href="ChangePasswordCtl">Change Password</a> |
 	<a href="LoginCtl?operation=logout">Logout</a>
 	<%
-		} else {
+	} else {
 	%>
 	<a href="LoginCtl">Login</a> |
 	<a href="UserRegistrationCtl">SignUp</a>
 	<%
-		}
+	}
 	%>
+
 
 
 	<hr>
