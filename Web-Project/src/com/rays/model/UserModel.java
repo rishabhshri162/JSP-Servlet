@@ -62,13 +62,13 @@ public class UserModel {
 
 	// delete query
 
-	public void delete(UserBean bean) throws Exception {
+	public void delete(int id) throws Exception {
 
 		Connection conn = JDBCDataSource.getConnection();
 
 		PreparedStatement pstmt = conn.prepareStatement("delete from st_user where id = ?");
 
-		pstmt.setInt(1, bean.getId());
+		pstmt.setInt(1, id);
 
 		int i = pstmt.executeUpdate();
 

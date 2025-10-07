@@ -46,6 +46,7 @@
 				<td><input type="password" name="confirmPassword" required></td>
 			</tr>
 			<tr>
+			<th></th>
 				<td align="center"><input type="submit" value="Change Password"></td>
 			</tr>
 		</table>
