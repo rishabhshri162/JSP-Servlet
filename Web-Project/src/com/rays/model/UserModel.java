@@ -183,11 +183,15 @@ public class UserModel {
 
 	}
 
-	// forgotpassword
+	// forgot password
 	public void forgotPassword(String login) throws Exception {
+		
 		Connection conn = JDBCDataSource.getConnection();
+		
 		PreparedStatement pstmt = conn.prepareStatement("SELECT password FROM st_user WHERE login=?");
+		
 		pstmt.setString(1, login.trim());
+		
 		ResultSet rs = pstmt.executeQuery();
 
 		if (rs.next()) {
@@ -196,6 +200,7 @@ public class UserModel {
 			System.out.println("Password for user " + login + " is: " + password);
 
 		} else {
+			
 			throw new RuntimeException("Invalid login or email.");
 		}
 	}
