@@ -39,6 +39,7 @@ public class ChangePasswordCtl extends HttpServlet {
 		} else {
 			try {
 				UserModel model = new UserModel();
+				
 
 			
 				model.changePassword(user.getLogin(), oldPassword, newPassword);
