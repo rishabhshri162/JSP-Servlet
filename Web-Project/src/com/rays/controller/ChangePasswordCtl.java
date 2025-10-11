@@ -45,8 +45,7 @@ public class ChangePasswordCtl extends HttpServlet {
 
 				request.setAttribute("successMsg", "Password changed successfully!");
 
-//			} catch (RuntimeException e) {
-//				request.setAttribute("errorMsg", e.getMessage());
+
 			} catch (Exception e) {
 				request.setAttribute("errorMsg", "Something went wrong. Please try again.");
 				e.printStackTrace();
