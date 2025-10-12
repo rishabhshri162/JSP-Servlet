@@ -39,8 +39,8 @@ public class UserRegistrationCtl extends HttpServlet {
 
 		try {
 
-			bean.setFirstname(firstName);
-			bean.setLastname(lastName);
+			bean.setFirstName(firstName);
+			bean.setLastName(lastName);
 			bean.setLogin(login);
 			bean.setPassword(password);
 			bean.setDob(sdf.parse(dob));

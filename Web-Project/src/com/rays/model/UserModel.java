@@ -48,8 +48,8 @@ public class UserModel {
 		int pk = nextpk();
 
 		pstmt.setInt(1, pk);
-		pstmt.setString(2, bean.getFirstname());
-		pstmt.setString(3, bean.getLastname());
+		pstmt.setString(2, bean.getFirstName());
+		pstmt.setString(3, bean.getLastName());
 		pstmt.setString(4, bean.getLogin());
 		pstmt.setString(5, bean.getPassword());
 		pstmt.setDate(6, new java.sql.Date(bean.getDob().getTime()));
@@ -87,8 +87,8 @@ public class UserModel {
 		PreparedStatement pstmt = conn.prepareStatement(
 				"update st_user set firstName = ?, lastName = ?, login = ?, password = ?, dob = ? where id = ?");
 
-		pstmt.setString(1, bean.getFirstname());
-		pstmt.setString(2, bean.getLastname());
+		pstmt.setString(1, bean.getFirstName());
+		pstmt.setString(2, bean.getLastName());
 		pstmt.setString(3, bean.getLogin());
 		pstmt.setString(4, bean.getPassword());
 		pstmt.setDate(5, new java.sql.Date(bean.getDob().getTime()));
@@ -118,8 +118,8 @@ public class UserModel {
 
 			bean = new UserBean();
 			bean.setId(rs.getInt(1));
-			bean.setFirstname(rs.getString(2));
-			bean.setLastname(rs.getString(3));
+			bean.setFirstName(rs.getString(2));
+			bean.setLastName(rs.getString(3));
 			bean.setLogin(rs.getString(4));
 			bean.setPassword(rs.getString(5));
 			bean.setDob(rs.getDate(6));
@@ -149,8 +149,8 @@ public class UserModel {
 
 			bean = new UserBean();
 			bean.setId(rs.getInt(1));
-			bean.setFirstname(rs.getString(2));
-			bean.setLastname(rs.getString(3));
+			bean.setFirstName(rs.getString(2));
+			bean.setLastName(rs.getString(3));
 			bean.setLogin(rs.getString(4));
 			bean.setPassword(rs.getString(5));
 			bean.setDob(rs.getDate(6));
@@ -221,8 +221,8 @@ public class UserModel {
 		while (rs.next()) {
 			bean = new UserBean();
 			bean.setId(rs.getInt(1));
-			bean.setFirstname(rs.getString(2));
-			bean.setFirstname(rs.getString(3));
+			bean.setFirstName(rs.getString(2));
+			bean.setLastName(rs.getString(3));
 			bean.setLogin(rs.getString(4));
 			bean.setPassword(rs.getString(5));
 			bean.setDob(rs.getDate(6));
@@ -243,12 +243,12 @@ public class UserModel {
 		StringBuffer sql = new StringBuffer("select * from st_user where 1=1");
 
 		if (bean != null) {
-			if (bean.getFirstname() != null && bean.getFirstname().length() > 0) {
-				sql.append(" and firstname like '%" + bean.getFirstname() + "%'");
+			if (bean.getFirstName() != null && bean.getFirstName().length() > 0) {
+				sql.append(" and firstname like '%" + bean.getFirstName() + "%'");
 
 			}
-			if (bean.getLastname() != null && bean.getLastname().length() > 0) {
-				sql.append(" and lastname like '%" + bean.getLastname() + "%'");
+			if (bean.getLastName() != null && bean.getLastName().length() > 0) {
+				sql.append(" and lastname like '%" + bean.getLastName() + "%'");
 
 			}
 
@@ -276,8 +276,8 @@ public class UserModel {
 		while (rs.next()) {
 			bean = new UserBean();
 			bean.setId(rs.getInt(1));
-			bean.setFirstname(rs.getString(2));
-			bean.setLastname(rs.getString(3));
+			bean.setFirstName(rs.getString(2));
+			bean.setLastName(rs.getString(3));
 			bean.setLogin(rs.getString(4));
 			bean.setPassword(rs.getString(5));
 			bean.setDob(rs.getDate(6));

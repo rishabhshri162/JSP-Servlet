@@ -40,8 +40,6 @@ public class ChangePasswordCtl extends HttpServlet {
 			try {
 				UserModel model = new UserModel();
 				
-
-			
 				model.changePassword(user.getLogin(), oldPassword, newPassword);
 
 				request.setAttribute("successMsg", "Password changed successfully!");
