@@ -244,7 +244,10 @@ public class UserModel {
 
 		if (bean != null) {
 			if (bean.getFirstName() != null && bean.getFirstName().length() > 0) {
-				sql.append(" and firstname like '%" + bean.getFirstName() + "%'");
+//				sql.append(" and firstname like '%" + bean.getFirstName() + "%'");
+				sql.append(" and firstname like '" + bean.getFirstName() + "%'");    //for only first letter search
+
+
 
 			}
 			if (bean.getLastName() != null && bean.getLastName().length() > 0) {

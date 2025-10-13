@@ -39,9 +39,29 @@
 
 			<table>
 				<tr>
+				
+					<%//for first name search %>
+					
 					<th>First Name</th>
 					<td><input type="text" name="firstName" value=""
 						placeholder="search by first name"></td>
+					<td><input type="submit" name="operation" value="search"></td>
+				</tr>
+				<tr>
+					<%//for search by login %>
+				
+					<th>login</th>
+					<td><input type="text" name="login" value=""
+						placeholder="search by login"></td>
+					<td><input type="submit" name="operation" value="search"></td>
+				</tr>
+				<tr>
+				
+				<%//for last name search %>
+				
+					<th>Last Name</th>
+					<td><input type="text" name="lastName" value=""
+						placeholder="search by last name"></td>
 					<td><input type="submit" name="operation" value="search"></td>
 				</tr>
 			</table>
