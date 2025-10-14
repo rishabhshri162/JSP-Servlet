@@ -1,6 +1,7 @@
 package com.rays.model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -185,13 +186,13 @@ public class UserModel {
 
 	// forgot password
 	public void forgotPassword(String login) throws Exception {
-		
+
 		Connection conn = JDBCDataSource.getConnection();
-		
+
 		PreparedStatement pstmt = conn.prepareStatement("SELECT password FROM st_user WHERE login=?");
-		
+
 		pstmt.setString(1, login.trim());
-		
+
 		ResultSet rs = pstmt.executeQuery();
 
 		if (rs.next()) {
@@ -200,7 +201,7 @@ public class UserModel {
 			System.out.println("Password for user " + login + " is: " + password);
 
 		} else {
-			
+
 			throw new RuntimeException("Invalid login or email.");
 		}
 	}
@@ -236,7 +237,7 @@ public class UserModel {
 
 	// find by search
 
-	public List search(UserBean bean) throws Exception {
+	public List search(UserBean bean, int pageNo, int pageSize) throws Exception {
 
 		List list = new ArrayList();
 
@@ -245,9 +246,7 @@ public class UserModel {
 		if (bean != null) {
 			if (bean.getFirstName() != null && bean.getFirstName().length() > 0) {
 //				sql.append(" and firstname like '%" + bean.getFirstName() + "%'");
-				sql.append(" and firstname like '" + bean.getFirstName() + "%'");    //for only first letter search
-
-
+				sql.append(" and firstname like '" + bean.getFirstName() + "%'"); // for only first letter search
 
 			}
 			if (bean.getLastName() != null && bean.getLastName().length() > 0) {
@@ -261,13 +260,19 @@ public class UserModel {
 			}
 
 			if (bean.getLogin() != null && bean.getLogin().length() > 0) {
-				sql.append(" and lastname like '%" + bean.getLogin() + "%'");
+				sql.append(" and login like '%" + bean.getLogin() + "%'");
 			}
 
 			if (bean.getDob() != null) {
+				Date d = new Date(bean.getDob().getTime());
 				sql.append(" and dob = ' " + new java.sql.Date(bean.getDob().getTime()) + " ' ");
 
 			}
+		}
+
+		if (pageSize > 0) {
+			pageNo = (pageNo - 1) * pageSize;
+			sql.append(" limit " + pageNo + " ," + pageSize);
 		}
 
 		Connection conn = JDBCDataSource.getConnection();
@@ -287,7 +292,7 @@ public class UserModel {
 			list.add(bean);
 
 		}
-
+		conn.close();
 		return list;
 
 	}

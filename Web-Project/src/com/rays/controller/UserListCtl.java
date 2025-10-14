@@ -1,6 +1,8 @@
 package com.rays.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -22,12 +24,18 @@ public class UserListCtl extends HttpServlet {
 
 		UserModel model = new UserModel();
 		UserBean bean = new UserBean();
+		
+		int pageNo = 1;
+		int pageSize = 5;
 
 		try {
-			List list = model.search(bean);
+			List list = model.search(bean, pageNo, pageSize);
+			List nextList = model.search(bean, pageNo + 1, pageSize);
+			request.setAttribute("pageNo", pageNo);
 			request.setAttribute("list", list);
+			request.setAttribute("nextList", nextList);
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 		}
 
@@ -39,9 +47,15 @@ public class UserListCtl extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
 		UserModel model = new UserModel();
 		UserBean bean = new UserBean();
 		String op = request.getParameter("operation");
+		
+		
+		int pageNo = 1;
+		int pageSize = 5;
 
 		String[] ids = request.getParameterValues("ids");
 
@@ -63,14 +77,34 @@ public class UserListCtl extends HttpServlet {
 		}
 
 		if (op.equals("search")) {
-			bean.setFirstName(request.getParameter("firstName"));
-			bean.setLogin(request.getParameter("login"));
-			bean.setLastName(request.getParameter("lastName"));
+			try {
+				bean.setFirstName(request.getParameter("firstName"));
+				bean.setLogin(request.getParameter("login"));
+				bean.setLastName(request.getParameter("lastName"));
+				bean.setDob(sdf.parse(request.getParameter("dob")));
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
 		}
 
+		if (op.equals("next")) {
+			pageNo = Integer.parseInt(request.getParameter("pageNo"));
+			pageNo++;
+
+		}
+
+		if (op.equals("previous")) {
+			pageNo = Integer.parseInt(request.getParameter("pageNo"));
+			pageNo--;
+
+		}
 		try {
-			List list = model.search(bean);
+			List list = model.search(bean, pageNo, pageSize);
+			List nextList = model.search(bean, pageNo + 1, pageSize);
+			request.setAttribute("pageNo", pageNo);
 			request.setAttribute("list", list);
+			request.setAttribute("nextList", nextList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
