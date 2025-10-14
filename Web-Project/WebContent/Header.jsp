@@ -28,6 +28,7 @@
 	<%
 	if (user != null) {
 	%>
+	<a href="MyProfileCtl">My Profile</a> |
 	<a href="UserCtl">Add User</a> |
 	<a href="UserListCtl">User List</a> |
 	<a href="ChangePasswordCtl">Change Password</a> |
