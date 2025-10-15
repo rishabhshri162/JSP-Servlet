@@ -16,7 +16,7 @@ import com.rays.bean.UserBean;
 import com.rays.model.UserModel;
 import com.rays.servlet.FirstServlet;
 
-@WebServlet("/UserListCtl")
+@WebServlet("/UserListCtl.do")
 public class UserListCtl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
