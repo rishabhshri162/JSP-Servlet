@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 public class FrontCtl implements Filter {
 
 	public void destroy() {
-		// TODO Auto-generated method stub
+		
 	}
 
 	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain chain)
@@ -31,7 +31,7 @@ public class FrontCtl implements Filter {
 
 		HttpSession session = request.getSession();
 		
-//		session.setMaxInactiveInterval(10);    //for session automatic logout in second
+//		session.setMaxInactiveInterval(10);    //for session automatic logout in second 
 		
 		if (session.getAttribute("user") == null) {
 			request.setAttribute("errorMsg", "your session is expired please re-login again...");
