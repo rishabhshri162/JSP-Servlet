@@ -12,9 +12,28 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.rays.bean.UserBean;
 import com.rays.model.UserModel;
+import com.rays.util.DataValidator;
 
 @WebServlet("/UserRegistrationCtl")
 public class UserRegistrationCtl extends HttpServlet {
+
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String op = request.getParameter("operation");
+		System.out.println("op = " + op);
+
+		if (op != null) {
+			System.out.println("op mila ==> ");
+			if (!DataValidator.signUpValidation(request)) {
+				RequestDispatcher rd = request.getRequestDispatcher("UserRegistrationView.jsp");
+				rd.forward(request, response);
+				return;
+			}
+		}
+
+		super.service(request, response);
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -46,21 +65,17 @@ public class UserRegistrationCtl extends HttpServlet {
 			bean.setDob(sdf.parse(dob));
 
 			model.add(bean);
-			
-			request.setAttribute("successMsg", "User Registration Successfully");
 
-		
+			request.setAttribute("successMsg", "User Registration Successfully");
 
 		} catch (Exception e) {
 			request.setAttribute("errorMsg", e.getMessage());
 			e.printStackTrace();
-	
-			
+
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("UserRegistrationView.jsp");
 		rd.forward(request, response);
 
-		
 	}
 
 }
