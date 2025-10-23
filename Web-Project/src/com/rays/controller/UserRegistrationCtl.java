@@ -29,6 +29,7 @@ public class UserRegistrationCtl extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("UserRegistrationView.jsp");
 				rd.forward(request, response);
 				return;
+			
 			}
 		}
 
