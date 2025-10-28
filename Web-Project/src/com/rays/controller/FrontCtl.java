@@ -31,7 +31,7 @@ public class FrontCtl implements Filter {
 
 		HttpSession session = request.getSession();
 		
-//		session.setMaxInactiveInterval(10);    //for session automatic logout in second 
+		//session.setMaxInactiveInterval(10);    //for session automatic logout in second 
 		
 		if (session.getAttribute("user") == null) {
 			request.setAttribute("errorMsg", "your session is expired please re-login again...");
@@ -39,7 +39,7 @@ public class FrontCtl implements Filter {
 			rd.forward(request, response);
 
 		} else {
-			// call next controller/config filter because use is login
+			// call next controller/config filter because user is login
 			chain.doFilter(request, response);
 		}
 	}
