@@ -16,7 +16,7 @@ import com.rays.model.ShoppingModel;
 import com.rays.model.UserModel;
 import com.rays.util.DataValidator;
 
-@WebServlet("/AddShoppingCtl.do")
+@WebServlet("/AddShoppingCtl")
 public class AddShoppingCtl extends HttpServlet {
 	
 
@@ -31,7 +31,9 @@ public class AddShoppingCtl extends HttpServlet {
 
 		if (id != null) {
 			try {
+				System.out.println(id);
 				bean = model.findById(Integer.parseInt(id));
+				System.out.println(id);
 				request.setAttribute("bean", bean);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -54,8 +56,8 @@ public class AddShoppingCtl extends HttpServlet {
 
 		String shopName = request.getParameter("shopName");
 		String productName = request.getParameter("productName");
-		String login = request.getParameter("login");
-		String password = request.getParameter("password");
+//		String login = request.getParameter("login");
+//		String password = request.getParameter("password");
 		Double price = Double.parseDouble(request.getParameter("price"));
 
 		try {

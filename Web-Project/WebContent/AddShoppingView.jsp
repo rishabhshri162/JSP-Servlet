@@ -45,7 +45,7 @@
 		}
 		%>
 
-		<form action="AddShoppingCtl.do" method="post">
+		<form action="AddShoppingCtl" method="post">
 			<input type="hidden" name="id"
 				value="<%=bean != null ? bean.getId() : ""%>">
 			<table>

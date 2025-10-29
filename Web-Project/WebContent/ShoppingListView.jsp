@@ -88,7 +88,7 @@
 					<td><%=bean.getShopName()%></td>
 					<td><%=bean.getProductName()%></td>
 					<td><%=bean.getLogin()%></td>
-					<td><a href="AddShoppingCtl.do?id=<%=bean.getId()%>">edit</a></td>
+					<td><a href="AddShoppingCtl?id=<%=bean.getId()%>">edit</a></td>
 				</tr>
 				<%
 					}

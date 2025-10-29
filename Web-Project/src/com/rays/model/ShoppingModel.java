@@ -103,7 +103,7 @@ public class ShoppingModel {
 
 		Connection conn = JDBCDataSource.getConnection();
 
-		PreparedStatement pstmt = conn.prepareStatement("select * from st_user where id = ?");
+		PreparedStatement pstmt = conn.prepareStatement("select * from shopping where id = ?");
 
 		pstmt.setInt(1, id);
 
@@ -115,9 +115,7 @@ public class ShoppingModel {
 			bean.setId(rs.getInt(1));
 			bean.setShopName(rs.getString(2));
 			bean.setProductName(rs.getString(3));
-			bean.setLogin(rs.getString(4));
-			bean.setPassword(rs.getString(5));
-			bean.setPrice(rs.getDouble(6));
+			bean.setPrice(rs.getDouble(4));
 			
 
 		}
