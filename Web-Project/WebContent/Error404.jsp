@@ -17,13 +17,6 @@
 <a href="WelcomeCtl">GO TO HOMEPAGE...</a>
 
 </h3>
-
-
-
-
 </div>
-
-
-
 </body>
 </html>

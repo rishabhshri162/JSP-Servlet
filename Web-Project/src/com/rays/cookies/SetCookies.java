@@ -16,7 +16,7 @@ public class SetCookies extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String name = request.getParameter("loginId");
+		String name = request.getParameter("login");
 		String value = request.getParameter("password");
 
 		Cookie c = new Cookie(name, value);

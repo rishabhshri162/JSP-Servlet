@@ -29,7 +29,9 @@
 	if (user != null) {
 	%>
 	<a href="MyProfileCtl">My Profile</a> |
+	<a href="ShoppingListCtl.do">Shopping List</a> |
 	<a href="UserCtl.do">Add User</a> |
+	<a href="AddShoppingCtl.do">Add shopping</a> |
 	<a href="UserListCtl.do">User List</a> |
 	<a href="ChangePasswordCtl">Change Password</a> |
 	<a href="LoginCtl?operation=logout">Logout</a>
