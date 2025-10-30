@@ -82,14 +82,12 @@ public class ShoppingModel {
 		Connection conn = JDBCDataSource.getConnection();
 
 		PreparedStatement pstmt = conn.prepareStatement(
-				"update shopping set shopName = ?, productName = ?, price = ?, login = ?, password = ? where id = ?");
+				"update shopping set shopName = ?, productName = ?, price = ? where id = ?");
 
 		pstmt.setString(1, bean.getShopName());
 		pstmt.setString(2, bean.getProductName());
 		pstmt.setDouble(3, bean.getPrice());
-		pstmt.setString(3, bean.getLogin());
-		pstmt.setString(4, bean.getPassword());
-		pstmt.setInt(5, bean.getId());
+		pstmt.setInt(4, bean.getId());
 
 		int i = pstmt.executeUpdate();
 		System.out.println("Data updated successfully");
@@ -166,22 +164,18 @@ public class ShoppingModel {
 
 		if (bean != null) {
 			if (bean.getShopName() != null && bean.getShopName().length() > 0) {
-//					sql.append(" and firstname like '%" + bean.getFirstName() + "%'");
+
 				sql.append(" and shopname like '" + bean.getShopName() + "%'"); // for only first letter search
 
 			}
 			if (bean.getProductName() != null && bean.getProductName().length() > 0) {
-				sql.append(" and productname like '%" + bean.getProductName() + "%'");
+				sql.append(" and productname like '" + bean.getProductName() + "%'");
 
 			}
 
 			if (bean.getId() > 0 && bean.getId() < nextpk()) {
 				sql.append(" and id like '%" + bean.getId() + "%'");
 
-			}
-
-			if (bean.getLogin() != null && bean.getLogin().length() > 0) {
-				sql.append(" and login like '%" + bean.getLogin() + "%'");
 			}
 
 		}

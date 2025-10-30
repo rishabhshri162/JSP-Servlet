@@ -31,9 +31,7 @@ public class AddShoppingCtl extends HttpServlet {
 
 		if (id != null) {
 			try {
-				System.out.println(id);
 				bean = model.findById(Integer.parseInt(id));
-				System.out.println(id);
 				request.setAttribute("bean", bean);
 			} catch (Exception e) {
 				e.printStackTrace();

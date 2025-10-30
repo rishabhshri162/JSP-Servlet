@@ -78,7 +78,6 @@ public class ShoppingListCtl extends HttpServlet {
 		if (op.equals("search")) {
 			try {
 				bean.setShopName(request.getParameter("shopName"));
-				bean.setPrice(Double.parseDouble(request.getParameter("price")));
 				bean.setProductName(request.getParameter("productName"));
 			} catch (Exception e) {
 

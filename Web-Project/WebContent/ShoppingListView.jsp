@@ -53,10 +53,6 @@
 					<th>product Name</th>
 					<td><input type="text" name="productName" value=""
 						placeholder="search by product name"></td>
-					<th>login</th>
-					<td><input type="text" name="login" value=""
-						placeholder="search by login"></td>
-
 					<td><input type="submit" name="operation" value="search"></td>
 				</tr>
 
