@@ -11,7 +11,7 @@
 <div align="center">
 <h3>SOMETHING IS WRONG....</h3>
 <hr>
-<img src="img/error404.png"></img>
+<img src="img/error404.png" width="1000"></img>
 <hr>
 <h3>
 <a href="WelcomeCtl">GO TO HOMEPAGE...</a>
