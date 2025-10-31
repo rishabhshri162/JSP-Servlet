@@ -78,7 +78,7 @@ public class AddShoppingCtl extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		RequestDispatcher rd = request.getReques5tDispatcher("AddShoppingView.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("AddShoppingView.jsp");
 		rd.forward(request, response);
 
 	}
