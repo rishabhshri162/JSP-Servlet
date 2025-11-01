@@ -53,13 +53,13 @@
 					<th>Shop Name</th>
 					<td><input type="text" name="shopName"
 						value="<%=bean != null ? bean.getShopName() : ""%>"
-						placeholder="enter shop name"></td>
+						placeholder="enter shop name"><span style="color: red"><%=request.getAttribute("shopName") != null ? request.getAttribute("shopName") : ""%></span></td>
 				</tr>
 				<tr>
 					<th>product Name</th>
 					<td><input type="text" name="productName"
 						value="<%=bean != null ? bean.getProductName() : ""%>"
-						placeholder="enter product name"></td>
+						placeholder="enter product name"><span style="color: red"><%=request.getAttribute("productName") != null ? request.getAttribute("productName") : ""%></span></td>
 				</tr>
 				<tr>
 					<th>price</th>

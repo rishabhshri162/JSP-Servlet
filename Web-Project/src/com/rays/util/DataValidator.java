@@ -9,7 +9,6 @@ public class DataValidator {
 
 	public static boolean signUpValidation(HttpServletRequest request) {
 		boolean isValid = true;
-
 		if (request.getParameter("firstName") == "") {
 			request.setAttribute("firstName", "  *First Name is required");
 
@@ -28,7 +27,6 @@ public class DataValidator {
 			request.setAttribute("login", "  Invalid login format");
 			isValid = false;
 		}
-
 
 		if (request.getParameter("password") == "") {
 			request.setAttribute("password", "  *Password is required");
@@ -67,8 +65,9 @@ public class DataValidator {
 					request.setAttribute("dob", "  *You are not eligible for this website");
 					isValid = false;
 				}
+
 			} catch (Exception e) {
-			
+
 				e.printStackTrace();
 			}
 
@@ -78,4 +77,32 @@ public class DataValidator {
 
 	}
 
-}
+	public static boolean shoppingValidation(HttpServletRequest request) {
+		boolean isValid = true;
+
+		// Shop Name
+		String shopName = request.getParameter("shopName");
+		
+		if (shopName == null || shopName.trim().isEmpty()) {
+			request.setAttribute("shopName", "*Shop name is required");
+			isValid = false;
+		} else if (shopName.length() < 3 || shopName.length() > 12) {
+			request.setAttribute("shopName", "*Shop name must be between 3 and 12 characters long");
+			isValid = false;
+		}
+		
+		String productName = request.getParameter("productName");
+		
+		if (productName == null || productName.trim().isEmpty()) {
+			request.setAttribute("productName", "*Product Name is required");
+			isValid = false;
+		}else if (productName.length() < 3 || productName.length() > 12) {
+			request.setAttribute("productName", "*Product name must be between 3 and 12 characters long");
+			isValid = false;
+		}
+
+		return isValid;
+
+	}
+	}
+

@@ -19,6 +19,25 @@ import com.rays.util.DataValidator;
 @WebServlet("/AddShoppingCtl")
 public class AddShoppingCtl extends HttpServlet {
 	
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String op = request.getParameter("operation");
+		System.out.println("op = " + op);
+
+		if (op != null) {
+			System.out.println("op mila ==> ");
+			if (!DataValidator.shoppingValidation(request)) {
+				RequestDispatcher rd = request.getRequestDispatcher("AddShoppingView.jsp");
+				rd.forward(request, response);
+				return;
+			
+			}
+		}
+
+		super.service(request, response);
+	}
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
