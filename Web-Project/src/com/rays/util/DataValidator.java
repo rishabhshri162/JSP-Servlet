@@ -96,8 +96,8 @@ public class DataValidator {
 		if (productName == null || productName.trim().isEmpty()) {
 			request.setAttribute("productName", "*Product Name is required");
 			isValid = false;
-		}else if (productName.length() < 3 || productName.length() > 12) {
-			request.setAttribute("productName", "*Product name must be between 3 and 12 characters long");
+		}else if (productName.length() < 3 || productName.length() > 50) {
+			request.setAttribute("productName", "*Product name must be between 3 and 50 characters long");
 			isValid = false;
 		}
 
